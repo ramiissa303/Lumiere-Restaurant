@@ -1,142 +1,203 @@
-# Lumière — Fine Dining Restaurant Website
+<div align="center">
 
-A sophisticated, single-page restaurant website built with **pure HTML, CSS, and vanilla JavaScript** — no frameworks, no build tools, no dependencies. Designed to showcase modern front-end craft: micro-interactions, scroll-driven animations, accessible UI patterns, and a responsive luxury aesthetic.
+# Lumière — Luxury Fine-Dining Website
 
----
+**A premium, fully responsive multi-page website for a fictional two-Michelin-star restaurant in Paris.**
 
-## Features
+Hand-built with semantic HTML5, modern CSS3 and vanilla JavaScript (ES6+) — no frameworks, no build step.
 
-- **Custom animated cursor** with a smooth ring that follows the pointer and expands on interactive elements
-- **Scroll-reveal animations** using the Intersection Observer API
-- **Accessible tab navigation** with animated sliding indicator and full keyboard support (Arrow keys)
-- **Reservation form** with client-side validation, visual error states, and an animated success transition
-- **3D tilt effect** on menu and testimonial cards
-- **Ambient glow** that tracks the cursor across the page
-- **Counter animation** on statistics when they enter the viewport
-- **Parallax scroll** on the chef portrait
-- **Animated hamburger menu** with full-screen mobile overlay
-- **CSS design tokens** (`--` custom properties) for consistent, maintainable theming
-- **Paper grain texture** via an inline SVG filter — zero extra HTTP requests
-- **Fully responsive** — tested at 320 px, 768 px, and 1440 px+
+[![Made with HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](#)
+[![Styled with CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](#)
+[![Vanilla JS](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?logo=javascript&logoColor=black)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-c9a24b.svg)](LICENSE)
+
+[Live Demo](#-live-demo) · [Features](#-features) · [Tech Stack](#-technologies-used) · [Getting Started](#-installation)
+
+</div>
 
 ---
 
-## Technologies
+## Overview
 
-| Layer      | Technology                              |
-|------------|-----------------------------------------|
-| Markup     | HTML5 (semantic, ARIA-labelled)         |
-| Styles     | CSS3 — Grid, Flexbox, Custom Properties |
-| Behaviour  | Vanilla JavaScript (ES6+, no libraries) |
-| Fonts      | Google Fonts — Cormorant Garamond, DM Sans |
-| Icons      | Font Awesome 6 (CDN)                    |
-| Images     | Unsplash (CDN) + local chef photography |
+**Lumière** is a design-led marketing website for an upscale restaurant, built to showcase production-quality front-end craft: cinematic layouts, refined typography, tasteful motion and genuine attention to accessibility. Every page is hand-authored — there is no framework and no bundler, so the entire project runs by simply opening a file in the browser.
+
+The design language pairs **Michelin-star restraint** with **luxury-hotel editorial** styling and **Apple-level attention to detail**: a palette of ivory, champagne gold, deep espresso and soft beige, set in the *Cormorant Garamond* display serif over *DM Sans*.
+
+> This is a portfolio / concept project. The restaurant, reviews and imagery are fictional and used for demonstration purposes only.
 
 ---
 
-## Folder Structure
+## ✨ Features
+
+- **10 fully designed pages** — Home, About, Menu, Reservations, Private Dining, Events, Gallery, Reviews, Journal and Contact.
+- **Light / dark mode** — persisted in `localStorage` and respects the visitor's system preference.
+- **Shared chrome, injected once** — the navigation, mega-menu, mobile menu and footer live in a single source file and are mounted into every page, so markup never drifts.
+- **Interactive reservation wizard** — a multi-step, airline-style booking flow with a calendar and an interactive floor map for picking your exact table.
+- **Data-driven menu** — live search, category navigation, dietary filters, sorting, allergens, calories and wine pairings.
+- **Keyboard-navigable gallery** — masonry layout with category filters and an accessible lightbox.
+- **Reviews & events** — animated rating bars, filtering and search; event cards with detail modals.
+- **Premium micro-interactions** — loading screen, custom cursor, scroll-progress bar, sticky auto-hiding nav, page-transition veil, animated counters, 3D tilt cards and reveal-on-scroll.
+- **Form validation** — custom-styled inputs with inline validation and success states.
+- **Accessible by design** — semantic landmarks, skip link, ARIA on interactive widgets, visible focus rings and full `prefers-reduced-motion` support.
+- **SEO-ready** — per-page titles and meta descriptions, Open Graph tags, a canonical URL and `Restaurant` JSON-LD structured data.
+- **Fully responsive** — mobile-first, fluid typography, tested from small phones to large desktops.
+
+---
+
+## 🛠 Technologies Used
+
+| Area | Stack |
+|------|-------|
+| Markup | Semantic **HTML5** |
+| Styling | **CSS3** — custom properties (design tokens), Grid, Flexbox, `clamp()` fluid type, keyframe animation |
+| Scripting | **Vanilla JavaScript (ES6+)** — modular files, `IntersectionObserver`, no dependencies |
+| Typography | Google Fonts — *Cormorant Garamond* & *DM Sans* |
+| Icons | Font Awesome 6 (via CDN) |
+| Imagery | Local photography + Unsplash (remote demo images) |
+| Tooling | **None required** — no framework, no bundler, no build step |
+
+---
+
+## 📁 Folder Structure
 
 ```
-lumiere-restaurant/
-├── index.html        # Single-page entry point
-├── style.css         # All styles — 23 organised sections
-├── script.js         # Vanilla JS — 12 self-contained IIFE modules
-├── img/
-│   ├── chef1.jpg     # Executive Chef portrait
-│   ├── chef2.jpg     # Kitchen herbs
-│   └── chef3.jpg     # Artisan spices
+lumiere-luxury-restaurant/
+├── index.html              # Home — hero, featured dishes, chef, awards, testimonials, events
+├── about.html              # Story, philosophy, timeline, team
+├── menu.html               # Data-driven menu with search, filters and sorting
+├── reservations.html       # Multi-step booking wizard + interactive floor map
+├── private-dining.html     # Occasion types, room previews, quote form
+├── events.html             # Event cards + detail modals
+├── gallery.html            # Masonry gallery with filters and lightbox
+├── reviews.html            # Rating summary, animated bars, filters
+├── journal.html            # Editorial blog grid with category filter
+├── contact.html            # Validated contact form, map, opening hours
+│
+├── assets/
+│   ├── css/
+│   │   ├── base.css        # Design tokens, reset, typography, dark theme, utilities
+│   │   ├── layout.css      # Loader, cursor, nav + mega menu, footer, scroll progress
+│   │   ├── components.css  # Buttons, cards, forms, badges, modals, stats
+│   │   ├── pages.css       # Per-page sections (hero, menu, wizard, gallery, reviews…)
+│   │   └── responsive.css  # Breakpoints and mobile refinements
+│   │
+│   └── js/
+│       ├── partials.js     # Single source of truth for shared chrome (nav/footer)
+│       ├── core.js         # Theme, loader, cursor, nav, reveal, counters, modals
+│       ├── menu.js         # Menu data + search / filter / sort / render
+│       ├── reservations.js # Booking wizard + calendar + floor map
+│       ├── gallery.js      # Masonry filter + lightbox
+│       ├── reviews.js      # Review render + filter / search + rating bars
+│       ├── events.js       # Event cards + detail modal
+│       ├── journal.js      # Article grid + category filter
+│       └── forms.js        # Generic form validation + success state
+│
+├── img/                    # Local chef photography
 ├── .gitignore
-├── LICENSE
+├── LICENSE                 # MIT
 └── README.md
 ```
 
+### How the shared layout works
+The navigation, mega-menu, mobile menu and footer are defined **once** in `assets/js/partials.js`. Each page includes lightweight mount points — `<div data-partial="header"></div>` and `<div data-partial="footer"></div>` — that `partials.js` replaces on load. It runs before `core.js` (both deferred) so all shared elements exist before behaviour binds. **To change the nav or footer, edit `partials.js` — never the individual pages.**
+
 ---
 
-## Getting Started
+## 🚀 Installation
 
-No build step required. Open directly or serve locally:
+No dependencies and no build step. Clone the repository:
 
 ```bash
-# Clone
-git clone https://github.com/ramiissa303/lumiere-restaurant.git
-cd lumiere-restaurant
-
-# Option 1 — Python
-python -m http.server 8000
-
-# Option 2 — Node.js
-npx serve .
-
-# Option 3 — VS Code
-# Install the "Live Server" extension, then right-click index.html → Open with Live Server
+git clone https://github.com/ramiissa303/lumiere-luxury-restaurant.git
+cd lumiere-luxury-restaurant
 ```
 
-Open `http://localhost:8000` in your browser.
+---
+
+## ▶️ How to Run
+
+**Option 1 — Open directly**
+
+Double-click `index.html`, or open it in your browser.
+
+**Option 2 — Serve locally (recommended)**
+
+A static server avoids any browser file-path restrictions:
+
+```bash
+# Python 3
+python -m http.server 8000
+
+# or Node
+npx serve
+```
+
+Then visit **http://localhost:8000**.
+
+> **Tip:** The hero supports an optional local background video — drop a file at `assets/video/hero.mp4` and it plays automatically, falling back to a poster image if absent.
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
-> Replace the placeholders below with real screenshots after deployment.
+> Replace the placeholders below with real captures once deployed (e.g. save them under `screenshots/`).
 
-| Hero Section | Menu Tabs | Reservation Form |
-|:---:|:---:|:---:|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
+| Home | Menu |
+|------|------|
+| ![Home page](screenshots/home.png) | ![Menu page](screenshots/menu.png) |
 
-| Chef Section | Testimonials | Mobile View |
-|:---:|:---:|:---:|
-| *(screenshot)* | *(screenshot)* | *(screenshot)* |
-
----
-
-## Live Demo
-
-[View Live Demo](https://ramiissa303.github.io/lumiere-restaurant) *(deploy to GitHub Pages and update this link)*
+| Reservations | Gallery |
+|--------------|---------|
+| ![Reservations](screenshots/reservations.png) | ![Gallery](screenshots/gallery.png) |
 
 ---
 
-## JavaScript Architecture
+## 🌐 Live Demo
 
-The script is structured as twelve independent IIFEs (Immediately Invoked Function Expressions), each responsible for a single feature. This pattern avoids global scope pollution and makes each module easy to locate, test, and remove independently.
+**Live site:** https://lumiere-restaurantt.netlify.app/
 
-| Module | Responsibility |
-|--------|---------------|
-| `initNav` | Sticky nav — adds `.scrolled` class via IntersectionObserver |
-| `initMobileMenu` | Hamburger toggle, Escape key, body scroll lock |
-| `initHeroScrollButtons` | Smooth scroll on `.js-scroll-to` buttons |
-| `initMenuTabs` | Tab switching, animated indicator, Arrow-key navigation |
-| `initScrollReveal` | `.reveal` class system using IntersectionObserver |
-| `initReservationForm` | Validation, invalid field highlighting, success animation |
-| `initMicroInteractions` | Press-scale effect on all buttons |
-| `initCustomCursor` | Dot + ring cursor with RAF-smoothed ring tracking |
-| `initAmbientGlow` | Mouse-follow radial gradient orb |
-| `initTiltCards` | 3D perspective tilt on menu and testimonial cards |
-| `initCounters` | Number count-up animation on stat elements |
-| `initParallax` | Subtle scroll parallax on the chef portrait |
+> Deploy for free with **GitHub Pages**: repository **Settings → Pages → Build and deployment → Deploy from a branch → `main` / root**.
 
 ---
 
-## Future Improvements
+## 📦 GitHub Repository
 
-- [ ] Deploy to GitHub Pages and update the Live Demo link
-- [ ] Add real form submission via [Formspree](https://formspree.io) or [EmailJS](https://www.emailjs.com)
-- [ ] Add a tasting-menu PDF viewer / download section
-- [ ] Dark mode toggle (CSS custom property swap)
-- [ ] Integrate an OpenTable or Resy reservation widget
-- [ ] Add a press & awards gallery section
-- [ ] Performance audit and image optimisation (WebP conversion, lazy loading review)
+**Repository:** https://github.com/ramiissa303/lumiere-luxury-restaurant
+
+```bash
+git clone https://github.com/ramiissa303/lumiere-luxury-restaurant.git
+```
 
 ---
 
-## License
+## 🔭 Future Improvements
 
-[MIT](LICENSE) © 2025 Rami Issa
+- Wire forms (reservations, contact, newsletter) to a real backend or a service such as Formspree.
+- Add a lightweight build step to minify assets and self-host fonts for offline / privacy-friendly delivery.
+- Replace remote Unsplash demo imagery with optimised, locally hosted `WebP`/`AVIF` assets.
+- Progressive Web App support — offline caching and an installable manifest.
+- Internationalisation (English / French) to match the Parisian setting.
+- Automated Lighthouse and accessibility checks in CI.
 
 ---
 
-## Author
+## 📄 License
 
-Built by **Rami Issa**
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 👤 Author
+
+**Rami Issa**
 
 - GitHub: [@ramiissa303](https://github.com/ramiissa303)
-- Email: ramiissa303@gmail.com
+- Email: [ramiissa303@gmail.com](mailto:ramiissa303@gmail.com)
+
+---
+
+<div align="center">
+
+If you find this project useful or inspiring, consider giving it a ⭐ — it helps a lot!
+
+</div>
