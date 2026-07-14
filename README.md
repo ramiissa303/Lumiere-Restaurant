@@ -165,7 +165,7 @@ Then visit **http://localhost:8000**.
 **Repository:** https://github.com/ramiissa303/lumiere-luxury-restaurant
 
 ```bash
-git clone https://github.com/ramiissa303/lumiere-luxury-restaurant.git
+git clone https://github.com/ramiissa303/lumiere-restaurant.git
 ```
 
 ---
