@@ -1,1144 +1,274 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lumière — Fine Dining</title>
+  <title>Lumière — Two-Michelin-Star Fine Dining in Paris</title>
+  <meta name="description" content="Lumière is a two-Michelin-star restaurant in Paris crafting a singular, seasonal dining experience. Reserve your table, explore the tasting menu, and discover private dining." />
+  <meta name="keywords" content="Lumière, Michelin star, fine dining, Paris restaurant, tasting menu, luxury dining, reservations" />
+  <meta name="author" content="Lumière" />
+  <meta name="theme-color" content="#1c1410" />
 
-  <!-- Google Fonts -->
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Lumière — Two-Michelin-Star Fine Dining" />
+  <meta property="og:description" content="Where craft becomes art. A singular seasonal dining experience in the heart of Paris." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1200&h=630&fit=crop&auto=format" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://lumiere.paris/" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Theme flash-guard -->
+  <script>(function(){try{var t=localStorage.getItem('lumiere-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Lumière",
+    "servesCuisine": "French Contemporary",
+    "priceRange": "€€€€",
+    "starRating": { "@type": "Rating", "ratingValue": "2" },
+    "address": { "@type": "PostalAddress", "streetAddress": "12 Rue Saint-Dominique", "postalCode": "75007", "addressLocality": "Paris", "addressCountry": "FR" },
+    "telephone": "+33142555050",
+    "url": "https://lumiere.paris/",
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1284" }
+  }
+  </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Custom Cursor -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
-  <!-- Ambient Glow -->
-  <div class="ambient-glow" aria-hidden="true">
-    <div class="ambient-glow-orb" aria-hidden="true"></div>
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark serif">Lumi<span>è</span>re</div>
+    <div class="loader-bar"></div>
+    <div class="loader-tagline">Fine Dining · Est. 2012</div>
   </div>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
-  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-    <a href="#" class="nav-logo">Lumi<span>è</span>re</a>
-    <ul class="nav-links">
-      <li><a href="#menu">Menu</a></li>
-      <li><a href="#chef">Our Chef</a></li>
-      <li><a href="#reservation">Reservations</a></li>
-      <li><a href="#reservation" class="nav-cta">Reserve a Table</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </nav>
+  <!-- Shared site chrome (nav, mega menu, cursor, veil…) injected by partials.js -->
+  <div data-partial="header"></div>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <a href="#menu" class="mobile-menu-link">Menu</a>
-    <a href="#chef" class="mobile-menu-link">Our Chef</a>
-    <a href="#reservation" class="mobile-menu-link">Reservations</a>
-    <a href="#" class="mobile-menu-link">Contact</a>
-    <a href="#reservation" class="mobile-menu-link">Reserve →</a>
-  </div>
+  <main id="main">
 
-
-  <!-- ============================================================
-        HERO SECTION
-   ============================================================ -->
-  <section class="hero" aria-label="Hero — Where Craft Becomes Art">
-
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="eyebrow">Est. 2012 · Paris &amp; New York</span>
-      </div>
-
-      <div class="hero-headline-group">
-        <div class="hero-accent-line" aria-hidden="true">
-          <span class="accent-dot"></span>
-          <span class="accent-line"></span>
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="Where craft becomes art">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span class="eyebrow eyebrow--left">Est. 2012 · Paris</span></div>
+        <div class="hero-headline-group">
+          <div class="hero-accent-line" aria-hidden="true"><span class="accent-dot"></span><span class="accent-line"></span></div>
+          <h1 class="hero-headline serif">Where Craft<br>Becomes<br><em>Art</em></h1>
         </div>
-        <h1 class="hero-headline serif">
-          Where Craft<br>Becomes<br><em>Art</em>
-        </h1>
-      </div>
-
-      <p class="hero-desc">
-        A singular dining experience sculpted from the finest seasonal ingredients, where each plate is a meditation on texture, memory, and provenance.
-      </p>
-
-      <div class="hero-actions">
-        <button class="btn-primary js-scroll-to" data-target="reservation">
-          Reserve Your Evening
-          <span class="btn-icon" aria-hidden="true">
-            <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-        <button class="btn-ghost js-scroll-to" data-target="menu">
-          Explore Menu ↓
-        </button>
-      </div>
-    </div>
-
-    <!-- Hero image panel -->
-    <div class="hero-right" aria-hidden="true">
-      <div class="hero-image-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800&h=1000&fit=crop&auto=format"
-          alt=""
-          class="hero-image"
-          loading="eager"
-        />
-        <div class="hero-image-overlay"></div>
-      </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="hero-scroll-hint" aria-hidden="true">
-      <span class="scroll-label">Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-
-  </section>
-
-
-  <!-- ============================================================
-       ABOUT / CREDENTIALS STRIP
-  ============================================================ -->
-  <section class="about-strip" aria-label="Awards and credentials">
-    <div class="container">
-      <div class="about-strip-inner">
-
-        <div class="about-strip-text reveal">
-          <h2 class="serif">A <em>Michelin</em> experience,<br>every single evening.</h2>
-          <p>Lumière earned its first Michelin star in 2016 and its second in 2019 — a testament to relentless precision and an unwavering respect for the seasons.</p>
+        <p class="hero-desc">A singular dining experience sculpted from the finest seasonal ingredients — where each plate is a meditation on texture, memory, and provenance.</p>
+        <div class="hero-actions">
+          <a href="reservations.html" class="btn-primary">Reserve Your Evening
+            <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </a>
+          <a href="menu.html" class="btn-ghost">Explore Menu ↓</a>
         </div>
+      </div>
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-media">
+          <!-- Video background support: drop a file at assets/video/hero.mp4 — poster shows until it plays -->
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=900&h=1100&fit=crop&auto=format">
+            <source src="assets/video/hero.mp4" type="video/mp4" />
+          </video>
+          <div class="hero-image-overlay"></div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true"><span class="scroll-label">Scroll</span><div class="scroll-line"></div></div>
+    </section>
 
-        <div class="about-stats" role="list">
+    <!-- ============ AWARDS STRIP ============ -->
+    <section class="section section--invert" aria-label="Awards and recognition">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">Recognition</span><h2 class="serif">Celebrated the world over</h2></div>
+        <div class="awards-row reveal reveal-delay-1">
+          <div class="award"><span class="award-star">★★</span><span class="award-title serif">Michelin Guide</span><span class="award-sub">Two Stars · 2019–2025</span></div>
           <div class="divider-ornament" aria-hidden="true"></div>
-
-          <div class="stat reveal reveal-delay-1" role="listitem">
-            <div class="stat-num serif">2</div>
-            <div class="stat-label">Michelin Stars</div>
-          </div>
-
+          <div class="award"><span class="award-star">✦</span><span class="award-title serif">World's 50 Best</span><span class="award-sub">No. 14 · 2024</span></div>
           <div class="divider-ornament" aria-hidden="true"></div>
-
-          <div class="stat reveal reveal-delay-2" role="listitem">
-            <div class="stat-num serif">12</div>
-            <div class="stat-label">Years of Excellence</div>
-          </div>
-
+          <div class="award"><span class="award-star">✦</span><span class="award-title serif">Gault &amp; Millau</span><span class="award-sub">19/20 · Chef of the Year</span></div>
           <div class="divider-ornament" aria-hidden="true"></div>
-
-          <div class="stat reveal reveal-delay-3" role="listitem">
-            <div class="stat-num serif">47</div>
-            <div class="stat-label">Artisan Suppliers</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ============================================================
-       MENU SECTION
-  ============================================================ -->
-  <section class="menu-section" id="menu" aria-labelledby="menu-heading">
-    <div class="container">
-
-      <div class="section-header reveal">
-        <span class="eyebrow">Curated Selections</span>
-        <h2 class="serif" id="menu-heading">The Menu</h2>
-        <p>Each dish is composed with intent — balancing contrast, harmony, and the singular pleasure of exceptional ingredients.</p>
-      </div>
-
-      <!-- Tab Navigation -->
-      <div class="menu-tabs" role="tablist" aria-label="Menu categories" id="menuTabs">
-        <div class="menu-tab-indicator" id="tabIndicator" aria-hidden="true"></div>
-        <button class="menu-tab active" role="tab" aria-selected="true"  aria-controls="panel-appetizers" data-panel="appetizers">Appetizers</button>
-        <button class="menu-tab"        role="tab" aria-selected="false" aria-controls="panel-mains"      data-panel="mains">Mains</button>
-        <button class="menu-tab"        role="tab" aria-selected="false" aria-controls="panel-desserts"   data-panel="desserts">Desserts</button>
-        <button class="menu-tab"        role="tab" aria-selected="false" aria-controls="panel-drinks"     data-panel="drinks">Signatures</button>
-      </div>
-
-      <!-- Menu Panels -->
-      <div class="menu-panels">
-
-        <!-- APPETIZERS -->
-        <div class="menu-panel active" id="panel-appetizers" role="tabpanel">
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=400&fit=crop&auto=format" alt="Osciètre Caviar" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Osciètre Caviar &amp; Crème Fraîche</h3>
-                <span class="menu-item-price">£68</span>
-              </div>
-              <p class="menu-item-desc">30g of aged osciètre on hand-pressed buckwheat blinis with cultured crème fraîche and preserved lemon oil.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-                <span class="tag">Seasonal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&h=400&fit=crop&auto=format" alt="White Asparagus Velouté" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">White Asparagus Velouté</h3>
-                <span class="menu-item-price">£28</span>
-              </div>
-              <p class="menu-item-desc">Silken velouté of Alsatian white asparagus, brown butter emulsion, micro-herbs, and a single hen's egg yolk.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-                <span class="tag">Spring</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=600&h=400&fit=crop&auto=format" alt="Tuna & Avocado Tataki" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Tuna &amp; Avocado Tataki</h3>
-                <span class="menu-item-price">£34</span>
-              </div>
-              <p class="menu-item-desc">Line-caught bluefin lightly seared, with Kyoto sesame dressing, shiso, and crystallised ginger.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&h=400&fit=crop&auto=format" alt="Burrata & Black Truffle" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Burrata &amp; Black Truffle</h3>
-                <span class="menu-item-price">£38</span>
-              </div>
-              <p class="menu-item-desc">Hand-pulled Pugliese burrata with 5g black Périgord truffle, smoked hazelnut oil, and aged balsamic.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-                <span class="tag">Seasonal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600&h=400&fit=crop&auto=format" alt="Langoustine Bisque" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Langoustine Bisque</h3>
-                <span class="menu-item-price">£42</span>
-              </div>
-              <p class="menu-item-desc">Deeply reduced Scottish langoustine bisque, finished with cognac, tarragon cream, and grilled sourdough.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=600&h=400&fit=crop&auto=format" alt="Oysters Rockefeller" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Oyster Rockefeller</h3>
-                <span class="menu-item-price">£36</span>
-              </div>
-              <p class="menu-item-desc">Freshly shucked Irish Rock oysters, baked with herb butter, spinach, and a gratin of aged parmesan.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-                <span class="tag">Classic</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&auto=format" alt="Chilled Pea & Mint Soup" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Chilled Pea &amp; Mint Soup</h3>
-                <span class="menu-item-price">£22</span>
-              </div>
-              <p class="menu-item-desc">Vibrant summer soup of garden peas and fresh mint, finished with crème fraîche and crispy shallots.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-                <span class="tag">Summer</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1506368249639-73a05d6f6488?w=600&h=400&fit=crop&auto=format" alt="Hamachi Crudo" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Hamachi Crudo</h3>
-                <span class="menu-item-price">£39</span>
-              </div>
-              <p class="menu-item-desc">Premium yellowtail with yuzu truffle sauce, micro shiso, pickled daikon, and edible flowers.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop&auto=format" alt="Artichoke Barigoule" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Artichoke Barigoule</h3>
-                <span class="menu-item-price">£30</span>
-              </div>
-              <p class="menu-item-desc">Braised artichokes in white wine and thyme, with olive oil, lemon zest, and shaved pecorino.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /panel-appetizers -->
-
-        <!-- MAINS -->
-        <div class="menu-panel" id="panel-mains" role="tabpanel">
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=400&fit=crop&auto=format" alt="Beef Wellington" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Beef Wellington for Two</h3>
-                <span class="menu-item-price">£165</span>
-              </div>
-              <p class="menu-item-desc">28-day dry-aged Hereford beef fillet, duxelles of wild porcini, and a gossamer puff pastry crust, carved tableside.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-                <span class="tag">Table-side</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600&h=400&fit=crop&auto=format" alt="Turbot en Croûte de Sel" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Turbot en Croûte de Sel</h3>
-                <span class="menu-item-price">£72</span>
-              </div>
-              <p class="menu-item-desc">Whole Breton turbot baked in a herb salt crust, presented whole then filleted, with beurre blanc and capers.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Table-side</span>
-                <span class="tag">Seasonal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1545247181-516773cae754?w=600&h=400&fit=crop&auto=format" alt="Duck à l'Orange" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Duck à l'Orange Revisited</h3>
-                <span class="menu-item-price">£58</span>
-              </div>
-              <p class="menu-item-desc">Aged Gressingham duck breast, smoked blood orange reduction, Savoy cabbage confit, and duck fat pomme purée.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=600&h=400&fit=crop&auto=format" alt="Mushroom & Chestnut Royale" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Mushroom &amp; Chestnut Royale</h3>
-                <span class="menu-item-price">£46</span>
-              </div>
-              <p class="menu-item-desc">A deeply umami main of roasted girolles, chestnut cream, smoked celeriac, and a black garlic jus.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegan</span>
-                <span class="tag">Autumn</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=600&h=400&fit=crop&auto=format" alt="Côte de Veau Rôtie" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Côte de Veau Rôtie</h3>
-                <span class="menu-item-price">£68</span>
-              </div>
-              <p class="menu-item-desc">Milk-fed Normandy veal rib, bone-in, with a vivid salsa verde, roasted white asparagus, and pommes sarladaises.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=400&fit=crop&auto=format" alt="Roasted Rack of Lamb" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Roasted Rack of Lamb</h3>
-                <span class="menu-item-price">£74</span>
-              </div>
-              <p class="menu-item-desc">New Zealand grass-fed lamb rack with rosemary jus, gratin dauphinois, and haricots verts.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=600&h=400&fit=crop&auto=format" alt="Sea Bass à la Plancha" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Sea Bass à la Plancha</h3>
-                <span class="menu-item-price">£56</span>
-              </div>
-              <p class="menu-item-desc">Line-caught sea bass seared on the plancha, with saffron beurre blanc and fennel confit.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Seasonal</span>
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop&auto=format" alt="Truffle Risotto" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Truffle Risotto</h3>
-                <span class="menu-item-price">£48</span>
-              </div>
-              <p class="menu-item-desc">Carnaroli risotto with black truffle shavings, aged parmesan, and a drizzle of aged balsamic.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-                <span class="tag">Seasonal</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=600&h=400&fit=crop&auto=format" alt="Wagyu Striploin" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Wagyu Striploin</h3>
-                <span class="menu-item-price">£96</span>
-              </div>
-              <p class="menu-item-desc">A5 Japanese wagyu striploin with ponzu reduction, grilled asparagus, and yuzu kosho.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /panel-mains -->
-
-        <!-- DESSERTS -->
-        <div class="menu-panel" id="panel-desserts" role="tabpanel">
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=600&h=400&fit=crop&auto=format" alt="Valrhona Soufflé" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Valrhona Soufflé</h3>
-                <span class="menu-item-price">£22</span>
-              </div>
-              <p class="menu-item-desc">Airy Guanaja 70% chocolate soufflé, risen to order, with a cold vanilla Chantilly poured tableside.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Please order early</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1562007908-17c67e878c88?w=600&h=400&fit=crop&auto=format" alt="Tarte Tatin Déstructurée" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Tarte Tatin Déstructurée</h3>
-                <span class="menu-item-price">£18</span>
-              </div>
-              <p class="menu-item-desc">Individual Reine de Reinette apple tart, caramelised in a copper pan, with Calvados ice cream and feuilletine.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Seasonal</span>
-                <span class="tag">Classic</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=600&h=400&fit=crop&auto=format" alt="Crème Brûlée" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Crème Brûlée Parfumée</h3>
-                <span class="menu-item-price">£16</span>
-              </div>
-              <p class="menu-item-desc">Vanilla bean custard infused with lemon verbena, under a perfectly even caramelised sugar crust.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Gluten-free</span>
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?w=600&h=400&fit=crop&auto=format" alt="Mille-Feuille de Saison" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Mille-Feuille de Saison</h3>
-                <span class="menu-item-price">£20</span>
-              </div>
-              <p class="menu-item-desc">Inverse puff pastry layered with seasonal fruit compote and diplomat cream, assembled to order.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?w=600&h=400&fit=crop&auto=format" alt="Fromage Selection" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Fromage Affiné Selection</h3>
-                <span class="menu-item-price">£26</span>
-              </div>
-              <p class="menu-item-desc">A curated board of five aged cheeses from our cave, with house-made accompaniments and walnut bread.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Vegetarian</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&h=400&fit=crop&auto=format" alt="Lemon & Basil Sorbet" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Lemon &amp; Basil Sorbet</h3>
-                <span class="menu-item-price">£14</span>
-              </div>
-              <p class="menu-item-desc">House-made lemon and basil sorbet served with vodka-melon pearls and a tuile biscuit.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Gluten-free</span>
-                <span class="tag">Summer</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600&h=400&fit=crop&auto=format" alt="Dark Chocolate Tart" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Dark Chocolate &amp; Sea Salt Tart</h3>
-                <span class="menu-item-price">£18</span>
-              </div>
-              <p class="menu-item-desc">Intense bitter chocolate tart with fleur de sel, crème anglaise, and caramelised hazelnuts.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1516559828984-fb3b99548b21?w=600&h=400&fit=crop&auto=format" alt="Poached Pear" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Poached Pear Belle Hélène</h3>
-                <span class="menu-item-price">£19</span>
-              </div>
-              <p class="menu-item-desc">Vanilla-poached Conference pear with warm chocolate sauce, vanilla ice cream, and candied almonds.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Classic</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop&auto=format" alt="Raspberry Panna Cotta" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Raspberry &amp; Rose Panna Cotta</h3>
-                <span class="menu-item-price">£16</span>
-              </div>
-              <p class="menu-item-desc">Silky panna cotta with raspberry gel, rose-scented cream, and fresh edible petals.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Gluten-free</span>
-                <span class="tag">Chef's Pick</span>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /panel-desserts -->
-
-        <!-- SIGNATURE DRINKS -->
-        <div class="menu-panel" id="panel-drinks" role="tabpanel">
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=600&h=400&fit=crop&auto=format" alt="Champagne Brut Reserve" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Champagne Brut Reserve</h3>
-                <span class="menu-item-price">£28 / glass</span>
-              </div>
-              <p class="menu-item-desc">House Billecart-Salmon by the glass — crisp, precise, and the perfect overture to any evening.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Cellar Selection</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&h=400&fit=crop&auto=format" alt="Saffron Old Fashioned" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Saffron Old Fashioned</h3>
-                <span class="menu-item-price">£24</span>
-              </div>
-              <p class="menu-item-desc">Bourbon infused with Kashmiri saffron, house-made demerara syrup, Angostura, and a flamed orange zest.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&h=400&fit=crop&auto=format" alt="Rosé Water Kefir" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Rosé Water Kefir</h3>
-                <span class="menu-item-price">£12</span>
-              </div>
-              <p class="menu-item-desc">House-fermented rose petal kefir, lightly effervescent, with Himalayan raspberry and lychee essence.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Non-alcoholic</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&h=400&fit=crop&auto=format" alt="Côtes du Rhône Blanc" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Côtes du Rhône Blanc</h3>
-                <span class="menu-item-price">£16 / glass</span>
-              </div>
-              <p class="menu-item-desc">Domaine de la Mordorée La Dame Rousse — complex, mineral, with notes of white peach and garrigue.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Cellar Selection</span>
-                <span class="tag">Sommelier's Choice</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&h=400&fit=crop&auto=format" alt="Noir & Or Espresso" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Noir &amp; Or Espresso</h3>
-                <span class="menu-item-price">£14</span>
-              </div>
-              <p class="menu-item-desc">A theatrical double espresso cocktail with Kahlúa, Giffard crème de cacao, and a 24-carat gold dust finish.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop&auto=format" alt="Lavender Bee's Knees" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Lavender Bee's Knees</h3>
-                <span class="menu-item-price">£20</span>
-              </div>
-              <p class="menu-item-desc">Gin, lavender-infused honey, fresh lemon juice, and edible flowers — shaken over ice.</p>
-              <div class="menu-item-tags">
-                <span class="tag">House Original</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=600&h=400&fit=crop&auto=format" alt="Matcha White Russian" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Matcha White Russian</h3>
-                <span class="menu-item-price">£22</span>
-              </div>
-              <p class="menu-item-desc">Vodka, Kahlúa, matcha-infused cream, and a delicate dusting of ceremonial matcha powder.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Signature</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&h=400&fit=crop&auto=format" alt="Smoked Maple Old Fashioned" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Smoked Maple Old Fashioned</h3>
-                <span class="menu-item-price">£24</span>
-              </div>
-              <p class="menu-item-desc">Bourbon, smoked maple syrup, orange bitters, and a tableside flamed rosemary sprig.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Chef's Pick</span>
-                <span class="tag">Table-side</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="menu-item">
-            <div class="menu-item-image">
-              <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&h=400&fit=crop&auto=format" alt="Hibiscus Cooler" loading="lazy">
-            </div>
-            <div class="menu-item-body">
-              <div class="menu-item-top">
-                <h3 class="menu-item-name">Hibiscus Cooler</h3>
-                <span class="menu-item-price">£14</span>
-              </div>
-              <p class="menu-item-desc">House-brewed hibiscus tea with fresh lime, agave nectar, and a splash of sparkling water.</p>
-              <div class="menu-item-tags">
-                <span class="tag">Non-alcoholic</span>
-                <span class="tag">House Original</span>
-              </div>
-            </div>
-          </article>
-
-        </div><!-- /panel-drinks -->
-
-      </div><!-- /menu-panels -->
-    </div><!-- /container -->
-  </section>
-
-
-  <!-- ============================================================
-       RESERVATION SECTION
-  ============================================================ -->
-  <section class="reservation-section" id="reservation" aria-labelledby="reservation-heading">
-    <div class="container">
-
-      <div class="section-header reveal">
-        <span class="eyebrow">Book Your Table</span>
-        <h2 class="serif" id="reservation-heading">Reserve an Evening</h2>
-        <p>We hold only forty covers each evening, ensuring every guest receives the full attention of our team.</p>
-      </div>
-
-      <div class="reservation-layout">
-
-        <!-- Info Column -->
-        <div class="reservation-info reveal">
-          <h3 class="serif">An evening to<br><em>remember.</em></h3>
-          <p>Every reservation is personally confirmed by our maître d'. We accommodate dietary requirements with advance notice and are delighted to arrange special occasions.</p>
-          <ul class="info-list">
-            <li>Dress code: Smart casual to formal</li>
-            <li>Children welcome from age 12</li>
-            <li>Private dining rooms available for 6–18 guests</li>
-            <li>48-hour cancellation notice required</li>
-          </ul>
-        </div>
-
-        <!-- Form — Double-Bezel Shell -->
-        <div class="form-shell reveal reveal-delay-2">
-          <div class="form-inner">
-            <h4 class="form-title serif">Make a Reservation</h4>
-            <p class="form-subtitle">All fields are required. We'll confirm within 2 hours.</p>
-
-            <form id="reservationForm" novalidate>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="firstName">First Name</label>
-                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Antoine" autocomplete="given-name" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="lastName">Last Name</label>
-                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Leclerc" autocomplete="family-name" required />
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="email">Email Address</label>
-                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required />
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="date">Date</label>
-                  <input class="form-input" type="date" id="date" name="date" required />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="time">Seating Time</label>
-                  <select class="form-input" id="time" name="time" required>
-                    <option value="" disabled selected>Select time</option>
-                    <option>18:00 — Early Seating</option>
-                    <option>18:30</option>
-                    <option>19:00</option>
-                    <option>19:30</option>
-                    <option>20:00 — Prime Seating</option>
-                    <option>20:30</option>
-                    <option>21:00</option>
-                    <option>21:30 — Late Seating</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="guests">Number of Guests</label>
-                <select class="form-input" id="guests" name="guests" required>
-                  <option value="" disabled selected>Select party size</option>
-                  <option>1 guest</option>
-                  <option>2 guests</option>
-                  <option>3 guests</option>
-                  <option>4 guests</option>
-                  <option>5 guests</option>
-                  <option>6 guests</option>
-                  <option>7–10 guests (private dining)</option>
-                  <option>11–18 guests (exclusive hire)</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="occasion">Special Occasion (optional)</label>
-                <textarea class="form-input form-textarea" id="occasion" name="occasion" placeholder="Birthday, anniversary, dietary requirements…"></textarea>
-              </div>
-
-              <div class="form-submit">
-                <button type="submit" class="btn-primary">
-                  Request Reservation
-                  <span class="btn-icon" aria-hidden="true">
-                    <svg viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </button>
-              </div>
-
-            </form>
-
-            <!-- Success State (shown after submission) -->
-            <div class="form-success" id="formSuccess" role="status" aria-live="polite">
-              <div class="form-success-icon" aria-hidden="true">✦</div>
-              <h4 class="serif form-success-title">Reservation Requested</h4>
-              <p class="form-success-body">Thank you. Our maître d' will confirm your table within 2 hours. We look forward to welcoming you.</p>
-            </div>
-
-          </div><!-- /form-inner -->
-        </div><!-- /form-shell -->
-
-      </div><!-- /reservation-layout -->
-    </div><!-- /container -->
-  </section>
-
-
-  <!-- ============================================================
-       CHEF'S STORY / PHILOSOPHY SECTION
-  ============================================================ -->
-  <section class="chef-section" id="chef" aria-labelledby="chef-heading">
-    <div class="container">
-      <div class="chef-grid">
-
-        <!-- Image Grid -->
-        <div class="chef-image-area reveal">
-
-          <div class="chef-img-main" role="img" aria-label="Executive Chef Antoine Moreau">
-            <img src="img/chef1.jpg" alt="Chef Antoine">
-            <div class="chef-name-overlay">
-              <span class="chef-name">Chef Antoine</span>
-              <span class="chef-title">Executive Chef</span>
-            </div>
-          </div>
-
-          <div class="chef-img-secondary">
-            <div class="img-frame img-frame-herb" role="img" aria-label="Fresh herbs from the kitchen garden">
-              <img src="img/chef2.jpg" alt="Fresh herbs from the kitchen garden">
-            </div>
-          </div>
-
-          <div class="chef-img-secondary">
-            <div class="img-frame img-frame-spice" role="img" aria-label="Artisan spices and seasonings">
-              <img src="img/chef3.jpg" alt="Artisan spices and seasonings">
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Text Content -->
-        <div class="chef-content">
-          <span class="eyebrow reveal">Our Philosophy</span>
-          <h2 class="serif reveal reveal-delay-1" id="chef-heading">
-            Cooking is<br>listening to<br><em>ingredients.</em>
-          </h2>
-
-          <p class="reveal reveal-delay-2">
-            Chef Antoine Moreau trained under Alain Passard at L'Arpège and spent three years in the Japanese highlands studying the philosophy of shun — the Japanese concept of peak seasonality. He returned to Paris with a conviction: that luxury is not excess, but the absolute right ingredient at the absolute right moment.
-          </p>
-
-          <blockquote class="chef-quote reveal reveal-delay-2">
-            "I do not impose flavour. I coax it forward. Every plate should taste inevitable — as though it could never have been any other way."
-          </blockquote>
-
-          <div class="chef-philosophy reveal reveal-delay-3" role="list">
-
-            <div class="philosophy-item" role="listitem">
-              <div class="philosophy-num serif">47</div>
-              <div class="philosophy-label">Artisan suppliers</div>
-            </div>
-
-            <div class="divider-ornament divider-ornament--sm" aria-hidden="true"></div>
-
-            <div class="philosophy-item" role="listitem">
-              <div class="philosophy-num serif">100%</div>
-              <div class="philosophy-label">Seasonal menus</div>
-            </div>
-
-            <div class="divider-ornament divider-ornament--sm" aria-hidden="true"></div>
-
-            <div class="philosophy-item" role="listitem">
-              <div class="philosophy-num serif">0</div>
-              <div class="philosophy-label">Compromises</div>
-            </div>
-
-          </div>
-        </div><!-- /chef-content -->
-
-      </div><!-- /chef-grid -->
-    </div><!-- /container -->
-  </section>
-
-
-  <!-- ============================================================
-       TESTIMONIALS SECTION
-  ============================================================ -->
-  <section class="testimonials-section" aria-labelledby="testimonials-heading">
-    <div class="container">
-
-      <div class="section-header reveal">
-        <span class="eyebrow">Guest Voices</span>
-        <h2 class="serif" id="testimonials-heading">The Evening Recalled</h2>
-      </div>
-
-      <div class="testimonials-grid">
-
-        <article class="testimonial-card reveal">
-          <div class="star-row" aria-label="5 out of 5 stars">
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-          </div>
-          <p class="testimonial-text">"The Wellington was the finest thing I have put in my mouth in thirty years of dining. The precision, the patience — every element a masterpiece in itself."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">JM</div>
-            <div>
-              <div class="author-name">Jonathan M.</div>
-              <div class="author-title">London, United Kingdom</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card reveal reveal-delay-1">
-          <div class="star-row" aria-label="5 out of 5 stars">
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-          </div>
-          <p class="testimonial-text">"We celebrated our anniversary here and left in tears — happy ones. The staff remembered my wife's favourite flower and placed one at her setting. Extraordinary."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">SL</div>
-            <div>
-              <div class="author-name">Stefan L.</div>
-              <div class="author-title">Zürich, Switzerland</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="testimonial-card reveal reveal-delay-2">
-          <div class="star-row" aria-label="5 out of 5 stars">
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-            <span class="star" aria-hidden="true">★</span>
-          </div>
-          <p class="testimonial-text">"The chocolate soufflé alone is worth the reservation. Chef Moreau's restraint is what elevates it — he trusts the chocolate completely, and so do we."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar" aria-hidden="true">AC</div>
-            <div>
-              <div class="author-name">Amélie C.</div>
-              <div class="author-title">Paris, France</div>
-            </div>
-          </div>
-        </article>
-
-      </div><!-- /testimonials-grid -->
-    </div><!-- /container -->
-  </section>
-
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-          <h3>Lumi<span>è</span>re</h3>
-          <p>A two-Michelin-star restaurant dedicated to the art of the season, the mastery of craft, and the joy of a perfectly set table.</p>
-          <div class="footer-social" aria-label="Social media links">
-            <a href="#" class="social-link" aria-label="Follow us on Instagram">
-              <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="#" class="social-link" aria-label="Follow us on Facebook">
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
-            <a href="#" class="social-link" aria-label="Follow us on X (Twitter)">
-              <i class="fa-brands fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
-
-        <div class="footer-col">
-          <h4>Visit Us</h4>
-          <address>
-            12 Rue Saint-Dominique<br>
-            75007 Paris, France<br><br>
-            <a href="tel:+33142555050">+33 1 42 55 50 50</a><br>
-            <a href="mailto:hello@lumiere.paris">hello@lumiere.paris</a>
-          </address>
-        </div>
-
-        <div class="footer-col">
-          <h4>Hours</h4>
-          <ul>
-            <li>Tuesday – Saturday</li>
-            <li>Lunch: 12:00 – 14:30</li>
-            <li>Dinner: 18:00 – 22:30</li>
-            <li class="footer-closed">Sunday – Monday: Closed</li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Navigate</h4>
-          <ul>
-            <li><a href="#menu">The Menu</a></li>
-            <li><a href="#chef">Our Chef</a></li>
-            <li><a href="#reservation">Reservations</a></li>
-            <li><a href="#">Private Dining</a></li>
-            <li><a href="#">Press &amp; Awards</a></li>
-            <li><a href="#">Gift Experiences</a></li>
-          </ul>
-        </div>
-
-      </div><!-- /footer-grid -->
-
-      <div class="footer-bottom">
-        <p>© 2025 Lumière Restaurant. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms &amp; Conditions</a>
-          <a href="#">Accessibility</a>
+          <div class="award"><span class="award-star">✦</span><span class="award-title serif">Grand Prix</span><span class="award-sub">Art de la Table</span></div>
         </div>
       </div>
+    </section>
 
-    </div><!-- /container -->
-  </footer>
+    <!-- ============ FEATURED DISHES ============ -->
+    <section class="section section--warm" aria-labelledby="featured-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">From the Pass</span><h2 class="serif" id="featured-h">Signature Compositions</h2><p>A glimpse of the plates our guests return for — each a study in restraint and seasonality.</p></div>
+        <div class="featured-grid">
+          <article class="featured-card reveal" data-tilt>
+            <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=800&fit=crop&auto=format" alt="Osciètre caviar and crème fraîche" loading="lazy" />
+            <span class="featured-card__tag"><span class="badge badge--gold">Signature</span></span>
+            <div class="featured-card__body"><h3 class="serif">Osciètre Caviar</h3><span class="featured-card__price">£68</span></div>
+          </article>
+          <article class="featured-card reveal reveal-delay-1" data-tilt>
+            <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&h=800&fit=crop&auto=format" alt="Beef Wellington for two" loading="lazy" />
+            <span class="featured-card__tag"><span class="badge badge--gold">Table-side</span></span>
+            <div class="featured-card__body"><h3 class="serif">Beef Wellington</h3><span class="featured-card__price">£165</span></div>
+          </article>
+          <article class="featured-card reveal reveal-delay-2" data-tilt>
+            <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=600&h=800&fit=crop&auto=format" alt="Valrhona chocolate soufflé" loading="lazy" />
+            <span class="featured-card__tag"><span class="badge badge--gold">Chef's Pick</span></span>
+            <div class="featured-card__body"><h3 class="serif">Valrhona Soufflé</h3><span class="featured-card__price">£22</span></div>
+          </article>
+        </div>
+        <div style="text-align:center;margin-top:3rem" class="reveal"><a href="menu.html" class="btn-ghost">View the full menu →</a></div>
+      </div>
+    </section>
 
+    <!-- ============ CHEF SPOTLIGHT ============ -->
+    <section class="section" aria-labelledby="chef-h">
+      <div class="container">
+        <div class="split">
+          <div class="split-media reveal-left">
+            <img src="img/chef1.jpg" alt="Executive Chef Antoine Moreau" loading="lazy" />
+            <span class="frame-line" aria-hidden="true"></span>
+          </div>
+          <div class="split-content">
+            <span class="eyebrow reveal">Our Chef</span>
+            <h2 class="serif reveal reveal-delay-1" id="chef-h">Cooking is listening to <em>ingredients</em></h2>
+            <p class="reveal reveal-delay-2">Chef Antoine Moreau trained under Alain Passard at L'Arpège and spent three years studying the Japanese philosophy of <em class="accent">shun</em> — peak seasonality. He returned to Paris with a conviction: luxury is not excess, but the absolute right ingredient at the absolute right moment.</p>
+            <blockquote class="quote-block reveal reveal-delay-2" style="text-align:left;margin:2rem 0 0;max-width:46ch;font-size:clamp(1.3rem,2.4vw,1.7rem)">"Every plate should taste inevitable — as though it could never have been any other way."<cite>Antoine Moreau · Executive Chef</cite></blockquote>
+            <a href="about.html" class="btn-text reveal reveal-delay-3">Read our story <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- JavaScript — deferred for performance -->
-  <script src="script.js" defer></script>
+    <!-- ============ STATS ============ -->
+    <section class="section section--surface" aria-label="By the numbers">
+      <div class="container">
+        <div class="stats-strip reveal">
+          <div class="stat"><div class="stat-num serif" data-count>2</div><div class="stat-label">Michelin Stars</div></div>
+          <div class="divider-ornament" aria-hidden="true"></div>
+          <div class="stat"><div class="stat-num serif" data-count>13</div><div class="stat-label">Years of Excellence</div></div>
+          <div class="divider-ornament" aria-hidden="true"></div>
+          <div class="stat"><div class="stat-num serif" data-count>47</div><div class="stat-label">Artisan Suppliers</div></div>
+          <div class="divider-ornament" aria-hidden="true"></div>
+          <div class="stat"><div class="stat-num serif" data-count>900</div><div class="stat-label">Wine References</div></div>
+        </div>
+      </div>
+    </section>
 
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" aria-labelledby="exp-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">The Lumière Way</span><h2 class="serif" id="exp-h">More than a meal</h2><p>Every evening is choreographed — from the first pour to the final mignardise.</p></div>
+        <div class="experience-band">
+          <article class="exp-item reveal">
+            <div class="exp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3l2.2 5.5L20 9l-4 3.8L17 19l-5-3-5 3 1-6.2L4 9l5.8-.5z" stroke-linejoin="round"/></svg></div>
+            <h3 class="serif">Seasonal Tasting</h3><p>A nine-course journey rewritten each season around the finest produce our growers can offer.</p>
+          </article>
+          <article class="exp-item reveal reveal-delay-1">
+            <div class="exp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3v6a6 6 0 0012 0V3M9 21h6M12 15v6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3 class="serif">Sommelier Pairings</h3><p>Cellar of 900 references, guided by a team that treats each pairing as a conversation.</p>
+          </article>
+          <article class="exp-item reveal reveal-delay-2">
+            <div class="exp-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke-linejoin="round"/></svg></div>
+            <h3 class="serif">Considered Service</h3><p>Forty covers a night, so every guest receives the undivided attention of our team.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY PREVIEW ============ -->
+    <section class="section section--warm" aria-labelledby="gal-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">A Visual Portrait</span><h2 class="serif" id="gal-h">Moments at Lumière</h2></div>
+        <div class="gallery-strip reveal reveal-delay-1">
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500&h=700&fit=crop&auto=format" alt="Dining room" loading="lazy" /></a>
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500&h=500&fit=crop&auto=format" alt="Plated dish" loading="lazy" /></a>
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=500&h=500&fit=crop&auto=format" alt="Chef at work" loading="lazy" /></a>
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=500&h=500&fit=crop&auto=format" alt="Dessert" loading="lazy" /></a>
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=500&h=500&fit=crop&auto=format" alt="Wine cellar" loading="lazy" /></a>
+          <a href="gallery.html"><img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=500&h=700&fit=crop&auto=format" alt="Cocktail" loading="lazy" /></a>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem" class="reveal"><a href="gallery.html" class="btn-ghost">Enter the gallery →</a></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+    <section class="section" aria-labelledby="test-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">Guest Voices</span><h2 class="serif" id="test-h">The Evening Recalled</h2></div>
+        <div class="home-reviews">
+          <article class="review-card reveal">
+            <div class="review-head"><div class="review-avatar">JM</div><div class="review-who"><div class="review-name">Jonathan M. <span class="badge badge--verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified</span></div><div class="review-date">London · March 2025</div></div></div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The finest thing I have put in my mouth in thirty years of dining. Every element a masterpiece in itself."</p>
+          </article>
+          <article class="review-card reveal reveal-delay-1">
+            <div class="review-head"><div class="review-avatar">SL</div><div class="review-who"><div class="review-name">Stefan L. <span class="badge badge--verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified</span></div><div class="review-date">Zürich · February 2025</div></div></div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"They remembered my wife's favourite flower and placed one at her setting. Extraordinary attention."</p>
+          </article>
+          <article class="review-card reveal reveal-delay-2">
+            <div class="review-head"><div class="review-avatar">AC</div><div class="review-who"><div class="review-name">Amélie C. <span class="badge badge--verified"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified</span></div><div class="review-date">Paris · January 2025</div></div></div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">"The soufflé alone is worth the reservation. Chef Moreau's restraint is what elevates it."</p>
+          </article>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem" class="reveal"><a href="reviews.html" class="btn-ghost">Read all 1,284 reviews →</a></div>
+      </div>
+    </section>
+
+    <!-- ============ UPCOMING EVENTS ============ -->
+    <section class="section section--surface" aria-labelledby="ev-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">Save the Date</span><h2 class="serif" id="ev-h">Upcoming Experiences</h2></div>
+        <div class="event-list">
+          <article class="event-card reveal">
+            <div class="event-media"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=500&h=400&fit=crop&auto=format" alt="Grand Cru wine tasting" loading="lazy" /><div class="event-date"><span class="d">18</span><span class="m">Jul</span></div></div>
+            <div class="event-info"><h3 class="serif">Grand Cru Tasting</h3><p>An evening through Burgundy's greatest terroirs, led by our head sommelier.</p><div class="event-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>19:00</span><span>8 seats left</span></div></div>
+            <div class="event-cta"><span class="event-price serif">£220</span><a href="events.html" class="btn-primary">Reserve</a></div>
+          </article>
+          <article class="event-card reveal reveal-delay-1">
+            <div class="event-media"><img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=500&h=400&fit=crop&auto=format" alt="Chef's night" loading="lazy" /><div class="event-date"><span class="d">02</span><span class="m">Aug</span></div></div>
+            <div class="event-info"><h3 class="serif">Chef's Table Night</h3><p>Twelve guests, one counter, and Antoine cooking an off-menu tasting before your eyes.</p><div class="event-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>20:00</span><span>Waitlist only</span></div></div>
+            <div class="event-cta"><span class="event-price serif">£380</span><a href="events.html" class="btn-primary">Join list</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTAGRAM ============ -->
+    <section class="section" aria-labelledby="ig-h">
+      <div class="container">
+        <div class="section-header reveal"><span class="eyebrow">@lumiere.paris</span><h2 class="serif" id="ig-h">Follow the Craft</h2></div>
+        <div class="insta-grid reveal reveal-delay-1">
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1562007908-17c67e878c88?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+          <a href="#" class="insta-cell" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1569529465841-dfecdab7503b?w=300&h=300&fit=crop&auto=format" alt="" loading="lazy" /></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div data-partial="footer"></div>
+
+  <script src="assets/js/partials.js" defer></script>
+  <script src="assets/js/core.js" defer></script>
 </body>
 </html>
