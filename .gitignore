@@ -1,17 +1,32 @@
-# OS
+# ── OS cruft ────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
-desktop.ini
+Desktop.ini
+ehthumbs.db
 
-# Editor
+# ── Editor / IDE ────────────────────────────────────────────
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
+*.swp
+*~
 
-# Logs
+# ── Logs & diagnostics ──────────────────────────────────────
 *.log
+npm-debug.log*
 
-# Temporary
-*.tmp
-*.bak
+# ── Dependencies (only if a tool is ever added) ─────────────
+node_modules/
+
+# ── Local dev / build artefacts ─────────────────────────────
+dist/
+.cache/
+.tmp/
+
+# ── Environment / secrets ───────────────────────────────────
+.env
+.env.local
+
+# ── Optional local hero video (not committed) ───────────────
+assets/video/
