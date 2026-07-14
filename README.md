@@ -61,7 +61,7 @@ The design language pairs **Michelin-star restraint** with **luxury-hotel editor
 ## 📁 Folder Structure
 
 ```
-lumiere-luxury-restaurant/
+Lumiere-Restaurant/
 ├── index.html              # Home — hero, featured dishes, chef, awards, testimonials, events
 ├── about.html              # Story, philosophy, timeline, team
 ├── menu.html               # Data-driven menu with search, filters and sorting
@@ -108,8 +108,8 @@ The navigation, mega-menu, mobile menu and footer are defined **once** in `asset
 No dependencies and no build step. Clone the repository:
 
 ```bash
-git clone https://github.com/ramiissa303/lumiere-luxury-restaurant.git
-cd lumiere-luxury-restaurant
+git clone https://github.com/ramiissa303/Lumiere-Restaurant.git
+cd Lumiere-Restaurant
 ```
 
 ---
@@ -156,16 +156,16 @@ Then visit **http://localhost:8000**.
 
 **Live site:** https://lumiere-restaurantt.netlify.app/
 
-> Deploy for free with **GitHub Pages**: repository **Settings → Pages → Build and deployment → Deploy from a branch → `main` / root**.
+> Deployed on **Netlify** — connected to this repository for automatic deploys on every push to `main`.
 
 ---
 
 ## 📦 GitHub Repository
 
-**Repository:** https://github.com/ramiissa303/lumiere-luxury-restaurant
+**Repository:** https://github.com/ramiissa303/Lumiere-Restaurant
 
 ```bash
-git clone https://github.com/ramiissa303/lumiere-restaurant.git
+git clone https://github.com/ramiissa303/Lumiere-Restaurant.git
 ```
 
 ---
