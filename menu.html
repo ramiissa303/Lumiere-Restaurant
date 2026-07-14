@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Menu — Lumière</title>
+  <meta name="description" content="Explore Lumière's seasonal menu: starters, mains, seafood, vegetarian, desserts, cocktails and a 900-reference wine collection — with ingredients, allergens, calories and sommelier pairings." />
+  <meta name="theme-color" content="#1c1410" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+  <link rel="stylesheet" href="assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>(function(){try{var t=localStorage.getItem('lumiere-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-mark serif">Lumi<span>è</span>re</div>
+    <div class="loader-bar"></div>
+    <div class="loader-tagline">Fine Dining · Est. 2012</div>
+  </div>
+  <div data-partial="header"></div>
+
+  <main id="main">
+    <header class="page-hero">
+      <div class="page-hero__bg"><img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=1600&h=900&fit=crop&auto=format" alt="A signature plate at Lumière" /></div>
+      <div class="container">
+        <span class="eyebrow page-hero__eyebrow eyebrow--left">Curated Selections</span>
+        <h1 class="serif">The <em>Menu</em></h1>
+        <p>Composed with intent — balancing contrast, harmony, and the singular pleasure of exceptional ingredients. Rewritten with every turn of the season.</p>
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Menu</span></nav>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="container">
+        <!-- Highlights / chef recommendation -->
+        <div class="split reveal" style="margin-bottom:4rem;align-items:center">
+          <div class="split-media" style="aspect-ratio:16/11"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=550&fit=crop&auto=format" alt="Chef's recommended tasting" /><span class="frame-line"></span></div>
+          <div class="split-content">
+            <span class="eyebrow">Chef's Recommendation</span>
+            <h2 class="serif">The Nine-Course <em>Menu Dégustation</em></h2>
+            <p>Cannot decide? Place yourself in Antoine's hands. Nine courses that trace the current season from the garden to the cellar, with optional sommelier pairings.</p>
+            <p style="margin-top:0.75rem"><span class="dish-price serif" style="font-size:1.6rem">£185</span> <span style="color:var(--text-muted)">· with pairings £295</span></p>
+            <a href="reservations.html" class="btn-primary" style="margin-top:1.5rem">Reserve for the tasting <span class="btn-icon" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="menu-toolbar reveal">
+          <div class="menu-search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4" stroke-linecap="round"/></svg>
+            <input type="search" id="menuSearch" placeholder="Search dishes, ingredients…" aria-label="Search the menu" />
+          </div>
+          <div class="menu-sort">
+            <label for="menuSort">Sort</label>
+            <select id="menuSort" aria-label="Sort dishes">
+              <option value="default">Chef's order</option>
+              <option value="price-asc">Price · low to high</option>
+              <option value="price-desc">Price · high to low</option>
+              <option value="name">Name · A–Z</option>
+              <option value="cal-asc">Calories · low to high</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category nav -->
+        <div class="menu-cats" id="menuCats" role="tablist" aria-label="Menu categories">
+          <button class="menu-cat active" data-cat="all" role="tab" aria-selected="true">All</button>
+          <button class="menu-cat" data-cat="starters" role="tab">Starters</button>
+          <button class="menu-cat" data-cat="mains" role="tab">Main Courses</button>
+          <button class="menu-cat" data-cat="seafood" role="tab">Seafood</button>
+          <button class="menu-cat" data-cat="vegetarian" role="tab">Vegetarian</button>
+          <button class="menu-cat" data-cat="desserts" role="tab">Desserts</button>
+          <button class="menu-cat" data-cat="drinks" role="tab">Drinks</button>
+          <button class="menu-cat" data-cat="cocktails" role="tab">Cocktails</button>
+          <button class="menu-cat" data-cat="wine" role="tab">Wine Collection</button>
+        </div>
+
+        <!-- Dietary filters -->
+        <div class="menu-filters" id="menuFilters" aria-label="Dietary filters">
+          <button class="menu-filter" data-filter="vegetarian">Vegetarian</button>
+          <button class="menu-filter" data-filter="vegan">Vegan</button>
+          <button class="menu-filter" data-filter="gluten-free">Gluten-free</button>
+          <button class="menu-filter" data-filter="signature">Signature</button>
+          <button class="menu-filter" data-filter="chefs-pick">Chef's Pick</button>
+        </div>
+
+        <!-- Dishes render here -->
+        <div class="dishes" id="dishes" aria-live="polite"></div>
+        <p class="menu-empty" id="menuEmpty">No dishes match your search. <em>Try another ingredient.</em></p>
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="container" style="text-align:center">
+        <div class="reveal">
+          <span class="eyebrow">Allergens &amp; Dietary</span>
+          <h2 class="serif" style="margin:1rem 0">Cooked around your needs</h2>
+          <p style="max-width:56ch;margin:0 auto;color:var(--text-muted)">Every dish lists its principal allergens and approximate calories. With 48 hours' notice our kitchen will happily adapt almost any dish for dietary requirements — simply note it with your reservation.</p>
+          <a href="reservations.html" class="btn-ghost" style="margin-top:2rem">Reserve &amp; note requirements →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-partial="footer"></div>
+  <script src="assets/js/partials.js" defer></script>
+  <script src="assets/js/core.js" defer></script>
+  <script src="assets/js/menu.js" defer></script>
+</body>
+</html>
